@@ -1,0 +1,50 @@
+name: Сообщить о баге
+description: Что-то не работает
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Перед заполнением отчета не забудье ознакомиться с правилами во вкладке Код. Если необходимо добавить скриншот или видео, прикрепите вложения ПОСЛЕ создания отчета в комментариях.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: Шаги воспроизведения
+      description: Изложите подробную инструкцию для воспроизведения.
+      placeholder: 1.Перейти в локацию Гостинная...
+    validations:
+      required: true
+      - type: textarea
+    id: actual-result
+    attributes:
+      label: Фактический результат
+      description: Опишите, как именно проявляет себя этот баг. Если нужно, можете также добавить Ожидаемый результат
+      placeholder: При действии А совершается действие Б.
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Версия продукта
+      description: На какой версии произошла ошибка?
+      options:
+        - Pre-Alpha 0.01 (Prototype)
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Логи
+      description: Скопируйте и вставьте любой соответствующий вывод журнала. Это будет автоматически преобразовано в код, поэтому обратные кавычки не нужны. Вы также можете добавить логи файлом .logs после создания этого отчета. Если эта ошибка на аппаратном уровне, добавление логов обязательно. Чтобы собрать их, нажмите на кнопку [M] во время игры.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Соглашение программы
+      description: Отправляя отчет о баге, вы соглашаетесь с [Условиями программы FR Testes](https://materialco.wixsite.com/flatreality-1), а также соблюдение подписанному NDA.
+      options:
+        - label: Я согласен со всем вышеперечисленным.
+          required: true
